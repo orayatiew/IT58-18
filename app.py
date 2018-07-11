@@ -23,8 +23,8 @@ def webhook():
         return 'json error'
 
     # Action Switcher
-    //if action == 'input.test':
-        //res = testwebhook(req)
+    #if action == 'input.test':
+        #res = testwebhook(req)
     if action == 'reservation.reservation-yes':
         res = create_reservation(req)
     if action == 'view-set':
@@ -37,8 +37,8 @@ def webhook():
 
     return make_response(jsonify({'fulfillmentText': res}))
 
-//def testwebhook(req):
-   // return 'test webhook sucess'
+#def testwebhook(req):
+   # return 'test webhook sucess'
 
 def create_reservation(req):
     parameters = req.get('queryResult').get('parameters')
