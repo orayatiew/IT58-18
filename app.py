@@ -6,6 +6,11 @@ import json
 from dateutil.parser import parse
 import os
 
+from linebot import LineBotApi
+from linebot.exceptions import LineBotApiError
+
+line_bot_api = LineBotApi('3Qg6VvA4B3r0t1QIp2eK+8ofPyhv0s+SieA4KV5YXyk4R2BDXyXhmmTgyV0jzN5JjxeJTBnMh7/FTJmHDNkaFmQ7bUhPIzvcWloXgk+hn301hRgT6uABPXXVumtkvlfLhO97NJ90ftB6/Vs5P+Bd2AdB04t89/1O/w1cDnyilFU=')
+
 #cred = credentials.Certificate("path/to/serviceAccountKey.json")
 #default_app = firebase_admin.initialize_app(cred)
 
@@ -24,7 +29,7 @@ def webhook():
 
     # Action Switcher
     if action == 'input.test':
-        res = testwebhook(req)
+         res = testwebhook(req)
    # if action == 'reservation.reservation-yes':
       #  res = create_reservation(req)
    # if action == 'view-set':
@@ -38,7 +43,13 @@ def webhook():
     return make_response(jsonify({'fulfillmentText': res}))
 
 def testwebhook(req):
-    return 'test webhook sucess'
+     try:
+         user_id = req.get('queryResult').get('userId')
+         profile = line_bot_api.get_profile(user_id)
+         name = profile.display_name
+         return 'Hello ' + name
+      except LineBotApiError as e:
+         return 'test webhook sucess'
 
 #def create_reservation(req):
     #parameters = req.get('queryResult').get('parameters')
