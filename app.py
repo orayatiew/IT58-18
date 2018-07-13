@@ -6,11 +6,6 @@ import json
 from dateutil.parser import parse
 import os
 
-from linebot import LineBotApi
-from linebot.exceptions import LineBotApiError
-
-
-
 #cred = credentials.Certificate("path/to/serviceAccountKey.json")
 #default_app = firebase_admin.initialize_app(cred)
 
@@ -43,14 +38,7 @@ def webhook():
     return make_response(jsonify({'fulfillmentText': res}))
 
 def testwebhook(req):
-    line_bot_api = LineBotApi('<3Qg6VvA4B3r0t1QIp2eK+8ofPyhv0s+SieA4KV5YXyk4R2BDXyXhmmTgyV0jzN5JjxeJTBnMh7/FTJmHDNkaFmQ7bUhPIzvcWloXgk+hn301hRgT6uABPXXVumtkvlfLhO97NJ90ftB6/Vs5P+Bd2AdB04t89/1O/w1cDnyilFU=>')
-     try:
-         user_id = req.get('queryResult').get('userId')
-         profile = line_bot_api.get_profile(user_id)
-         name = profile.display_name
-         return name
-      except LineBotApiError as e:
-         return 'test webhook sucess'
+     return 'test webhook sucess'
 
 #def create_reservation(req):
     #parameters = req.get('queryResult').get('parameters')
