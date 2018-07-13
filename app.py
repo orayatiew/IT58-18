@@ -47,7 +47,7 @@ def testwebhook(req):
          user_id = req.get('queryResult').get('userId')
          profile = line_bot_api.get_profile(user_id)
          name = profile.display_name
-         return 'Hello ' + name
+         return name
       except LineBotApiError as e:
          return 'test webhook sucess'
 
