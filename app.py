@@ -38,9 +38,8 @@ def webhook():
     return make_response(jsonify({'fulfillmentText': res}))
 
 def testwebhook(req):
-	#parameters = req.get('outputContexts').get('parameters')
-	#studentId = parameters.get('number')
-     return 'กำลังดำเนินรายการค่ะ'
+	studentId  = req.get('queryResult').get('outputContexts').get('parameters').get('number')
+     return studentId
 
 #def create_reservation(req):
     #parameters = req.get('queryResult').get('parameters')
