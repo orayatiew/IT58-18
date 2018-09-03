@@ -24,7 +24,7 @@ def webhook():
 
     # Action Switcher
     if action == 'auth.confirm':
-         res = req.get('queryResult').get('outputContexts').get('parameters').get('number.original')
+         res = req.get('queryResult').get('action')
    # if action == 'reservation.reservation-yes':
       #  res = create_reservation(req)
    # if action == 'view-set':
