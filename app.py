@@ -40,7 +40,7 @@ def webhook():
 def testwebhook(req):
 	parameters = req.get('outputContexts').get('parameters')
 	studentId = parameters.get('number')
-     return 'กำลังดำเนินรายการค่ะ' + studentId
+     return 'กำลังดำเนินรายการค่ะ'
 
 #def create_reservation(req):
     #parameters = req.get('queryResult').get('parameters')
