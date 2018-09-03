@@ -38,7 +38,7 @@ def webhook():
     return make_response(jsonify({'fulfillmentText': res}))
 
 def testwebhook(req):
-	parameters = req.get('queryResult').get('parameters')
+	parameters = req.get('outputContexts').get('parameters')
 	studentId = parameters.get('number')
      return 'กำลังดำเนินรายการค่ะ' + studentId
 
