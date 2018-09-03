@@ -39,7 +39,7 @@ def webhook():
 
 def testwebhook(req):
 	action = req.get('queryResult').get('action')
-     return action
+     return str(action)
 
 #def create_reservation(req):
     #parameters = req.get('queryResult').get('parameters')
