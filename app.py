@@ -24,7 +24,7 @@ def webhook():
 
     # Action Switcher
     if action == 'auth.confirm':
-         res = testwebhook(req)
+         res = req.get('queryResult').get('parameters').get('studentId')
    # if action == 'reservation.reservation-yes':
       #  res = create_reservation(req)
    # if action == 'view-set':
@@ -37,9 +37,9 @@ def webhook():
 
     return make_response(jsonify({'fulfillmentText': res}))
 
-def testwebhook(req):
-	studentId  = req.get('queryResult').get('parameters').get('studentId')
-    return studentId
+#def testwebhook(req):
+	#studentId  = req.get('queryResult').get('parameters').get('studentId')
+    #return studentId
 
 #def create_reservation(req):
     #parameters = req.get('queryResult').get('parameters')
